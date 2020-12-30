@@ -22,7 +22,7 @@ export default function Material({ material }) {
     }, [getMaterialObject])
     return (
         <>
-            {materialObject?.materialtype === 'Image' && <img src={materialObject?.material} style={{ width: "100vw",height:"100vh" }} alt={materialObject.name} />}
+            {materialObject?.materialtype === 'Image' && <img src={materialObject?.material} style={{ width: "100%",height:"100%" }} alt={materialObject.name} />}
             {materialObject?.materialtype === 'Text' && <div className="text_slide"><h1>{materialObject?.material}</h1></div>}
         </>
     )

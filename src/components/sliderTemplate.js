@@ -35,7 +35,7 @@ const SliderTemplate = () => {
     }, [idx, notices.length])
 
     return (
-        <div>
+        <div style={{height:"100vh"}}>
             <SlideMaterial material={notices[idx]?.material} />
         </div>
     )
