@@ -1,43 +1,44 @@
-import React from 'react';
-import Slick from 'react-slick'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import SlideMaterial from './SlideMaterial'
 
-const SliderTemplate = (props) => {
-    const template = null;
-    const images =[
-        {image: "https://i.ibb.co/0ZVzkdQ/Report-Card-SRCMST.jpg"},
-        {image: "https://picsum.photos/id/236/1900/900"},
-        {image: "https://picsum.photos/id/238/1900/900"},
-        {image: "https://picsum.photos/id/239/1900/900"},
-        {image: "https://picsum.photos/id/240/1900/900"},
-        {image: "https://picsum.photos/id/287/1900/900"},
-        {image: "https://picsum.photos/id/231/1900/900"},
-        {image: "https://picsum.photos/id/232/1900/900"},
-        {image: "https://picsum.photos/id/233/1900/900"},
-        {image: "https://picsum.photos/id/234/1900/900"}
-    ]
-    const settings = {
-        dots: false,
-        infinite : true,
-        arrows : false,
-        speed : 500,
-        slidesToShow : 1,
-        slidesToScroll : 1
-    };
+const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env;
 
-    const renderTemplate = () => (
-        images.map((img,key) => (
-            <div>
-                <img src={img.image} alt="" style={{width: "100%",height: "100vh"}}/>
-            </div>
-        ))
+const SliderTemplate = () => {
+    const [notices, setMotices] = useState([])
+    const [idx, setIdx] = useState(0)
+    const getNotices = async () => {
+        try {
+            const { data } = await axios.get(`${REACT_APP_NOT_AXIOS_BASE_URL}/admin/getnotices`)
+            console.log(data)
+            if (data.success) {
+                setMotices(data.notices)
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+    useEffect(() => {
+        getNotices()
+    }, [])
+
+    useEffect(() => {
+        const changeSlide = setTimeout(() => {
+            if (idx === notices.length - 1) {
+                setIdx(0)
+            } else {
+                setIdx(d => d + 1)
+            }
+        }, 2000)
+        return () => clearTimeout(changeSlide)
+    }, [idx, notices.length])
+
+    return (
+        <div>
+            <SlideMaterial material={notices[idx]?.material} />
+        </div>
     )
-        return (
-            <div>
-                <Slick {...settings}>
-                    {renderTemplate()}
-                </Slick>
-            </div>
-        );
 
 }
 export default SliderTemplate

@@ -1,35 +1,38 @@
-import React,{Component} from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
+import Material from './Material'
 
-class Page_grid extends Component {
+const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env
 
-    render() {
+function Page_grid() {
+    const [notices, setMotices] = useState([])
 
-        const images =[
-            {image: "https://i.ibb.co/0ZVzkdQ/Report-Card-SRCMST.jpg"},
-            {image: "https://picsum.photos/id/236/200/460"},
-            {image: "https://picsum.photos/id/238/200/460"},
-            {image: "https://picsum.photos/id/239/200/460"},
-            {image: "https://picsum.photos/id/240/200/460"},
-            {image: "https://picsum.photos/id/287/200/460"},
-            {image: "https://picsum.photos/id/231/200/460"},
-            {image: "https://picsum.photos/id/232/200/460"},
-            {image: "https://picsum.photos/id/233/200/460"},
-            {image: "https://picsum.photos/id/234/200/460"}
-        ]
-
-        return (
-            <>
-                <div className="flex-container">
-                    {
-                        images.map((img,key) => (
-                            <div>
-                                <img src={img.image} alt=""/>
-                            </div>
-                        ))
-                    }
-                </div>
-            </>
-        );
+    const getNotices = async () => {
+        try {
+            const { data } = await axios.get(`${REACT_APP_NOT_AXIOS_BASE_URL}/admin/getnotices`)
+            console.log(data)
+            if (data.success) {
+                setMotices(data.notices)
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
     }
+
+    useEffect(() => {
+        getNotices()
+    }, [])
+
+    return (
+        <>
+            <div className="flex-container">
+                {notices?.map((notice, key) => (
+                    <div key={key}>
+                        <Material material={notice.material} />
+                    </div>
+                ))}
+            </div>
+        </>
+    )
 }
 export default Page_grid
