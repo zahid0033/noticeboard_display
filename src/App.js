@@ -1,8 +1,8 @@
 import './App.css';
 import { Route } from "react-router-dom";
-import Page_grid from "./components/page_grid";
+import Page_grid from "./components/page_grid/page_grid";
 import Home from "./components/home";
-import SliderTemplate from "./components/sliderTemplate";
+import SliderTemplate from "./components/slider/sliderTemplate";
 import SingleImage from "./components/single_image/home";
 import SingleImageHeadline from "./components/single_image_headline/home";
 import { BrowserRouter, Switch } from "react-router-dom";
