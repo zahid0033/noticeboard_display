@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import Material from './Material'
 
 const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env
 
@@ -28,7 +27,8 @@ function Page_grid() {
             <div className="flex-container">
                 {notices?.map((notice, key) => (
                     <div key={key}>
-                        <Material material={notice.material} />
+                        {notice?.material?.materialtype === 'Image' && <img src={notice?.material?.material} alt={notice?.material.name} />}
+                        {notice?.material?.materialtype === 'Text' && <div className="text_slide"><h1>{notice?.material?.material}</h1></div>}
                     </div>
                 ))}
             </div>
