@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import SlideMaterial from './SlideMaterial'
+// import SlideMaterial from './SlideMaterial'
 
 const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env;
 
