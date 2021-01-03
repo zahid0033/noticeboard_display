@@ -15,8 +15,8 @@ const SliderTemplate = ({ notices }) => {
     }, [idx, notices.length])
 
     return (
-        <div style={{ height: "100vh" }}>
-            {notices[idx]?.material?.materialtype === 'Image' && <img src={notices[idx]?.material?.material} style={{ width: "100vw" }} alt={notices[idx]?.material.name} />}
+        <div style={{ height: "100vh", display: "flex", justifyContent: "center" }}>
+            {notices[idx]?.material?.materialtype === 'Image' && <img src={notices[idx]?.material?.material} style={{ height: "100%" }} alt={notices[idx]?.material.name} />}
             {notices[idx]?.material?.materialtype === 'Text' && <div className="text_slide"><h1>{notices[idx]?.material?.material}</h1></div>}
         </div>
     )
