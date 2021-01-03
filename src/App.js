@@ -29,11 +29,11 @@ function App() {
   return (
     <div className="">
       <header className="display_content">
-        <SingleImage notice={noticeboard?.selectednotices[0]} />
+        {/* <SingleImage notice={noticeboard?.selectednotices[0]} /> */}
         {/* <Pagegrid notices={noticeboard?.selectednotices} /> */}
-        {/* {noticeboard?.displaytype === "grid" && <Pagegrid notices={noticeboard?.selectednotices} />} */}
-        {/* {noticeboard?.displaytype === "slider" && <SliderTemplate notices={noticeboard?.selectednotices} />} */}
-        {/* {noticeboard?.displaytype === "singleimage" && <SingleImage notice={noticeboard?.selectednotices[0]} />} */}
+        {noticeboard?.displaytype === "grid" && <Pagegrid notices={noticeboard?.selectednotices} />}
+        {noticeboard?.displaytype === "slider" && <SliderTemplate notices={noticeboard?.selectednotices} />}
+        {noticeboard?.displaytype === "singleimage" && <SingleImage notice={noticeboard?.selectednotices[0]} />}
       </header>
     </div>
   );
