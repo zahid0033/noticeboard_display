@@ -31,7 +31,7 @@ function App() {
       <header className="display_content">
         {noticeboard?.displaytype === "grid" && <Pagegrid />}
         {noticeboard?.displaytype === "slider" && <SliderTemplate />}
-        {noticeboard?.displaytype === "slider" && <SingleImage />}
+        {noticeboard?.displaytype === "singleimage" && <SingleImage />}
       </header>
     </div>
   );
