@@ -29,9 +29,9 @@ function App() {
   return (
     <div className="">
       <header className="display_content">
-        {noticeboard?.displaytype === "grid" && <Pagegrid />}
-        {noticeboard?.displaytype === "slider" && <SliderTemplate />}
-        {noticeboard?.displaytype === "singleimage" && <SingleImage />}
+        {noticeboard?.displaytype === "grid" && <Pagegrid notices={noticeboard?.selectednotices} />}
+        {noticeboard?.displaytype === "slider" && <SliderTemplate notices={noticeboard?.selectednotices} />}
+        {noticeboard?.displaytype === "singleimage" && <SingleImage notice={noticeboard?.selectednotices[0]} />}
       </header>
     </div>
   );
