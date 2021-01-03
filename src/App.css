@@ -27,3 +27,11 @@
 .flex-container .item {
   flex: 1;
 }
+
+.text_slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
