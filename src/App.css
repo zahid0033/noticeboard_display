@@ -26,6 +26,13 @@
   flex-basis: 100%;
   text-align: center;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-container .item img {
+  height: 100%;
 }
 
 .text_slide {

@@ -4,8 +4,8 @@ function Page_grid({ notices }) {
         <div className="flex-container">
             {notices?.map((notice, key) => (
                 <Fragment key={key}>
-                    {notice?.material?.materialtype === 'Image' && <img className="item" src={notice?.material?.material} alt={notice?.material.name} />}
-                    {notice?.material?.materialtype === 'Text' && <p className="item">{notice?.material?.material}</p>}
+                    {notice?.material?.materialtype === 'Image' && <div className="item"><img src={notice?.material?.material} alt={notice?.material.name} /></div>}
+                    {notice?.material?.materialtype === 'Text' && <div className="item"><h1>{notice?.material?.material}</h1></div>}
                 </Fragment>
             ))}
         </div>
