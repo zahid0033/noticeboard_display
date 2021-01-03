@@ -10,12 +10,12 @@ const SliderTemplate = ({ notices }) => {
             } else {
                 setIdx(d => d + 1)
             }
-        }, 2000)
+        }, 10000)
         return () => clearTimeout(changeSlide)
     }, [idx, notices.length])
 
     return (
-        <div style={{ height: "100vh", display: "flex", justifyContent: "center" }}>
+        <div style={{ height: "100vh", display: "flex", justifyContent: "center", background: "#edf0f5" }}>
             {notices[idx]?.material?.materialtype === 'Image' && <img src={notices[idx]?.material?.material} style={{ height: "100%" }} alt={notices[idx]?.material.name} />}
             {notices[idx]?.material?.materialtype === 'Text' && <div className="text_slide"><h1>{notices[idx]?.material?.material}</h1></div>}
         </div>
