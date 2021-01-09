@@ -8,7 +8,7 @@ const SingleImage = ({ notice }) => {
                 {notice?.materials[3]?.materialtype === 'Image' && <img src={notice.materials[3].material} alt="" style={{ height: "100%", display: "block", marginLeft: "auto", marginRight: "auto" }} />}
                 {notice?.materials[3]?.materialtype === 'Text' && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: "100%" }}><h1>{notice.materials[3].material}</h1></div>}
                 <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-                    <img src="https://i.ibb.co/DKqStGC/download.png" alt="" style={{ width: "100px", borderRadius: "50%" }} />
+                    <img src="https://i.ibb.co/dr0tvG7/The-World-Bank-Logo.png" alt="" style={{ width: "100px", borderRadius: "50%" }} />
                 </div>
             </div>
         </div>
