@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-function Page_grid({ notices }) {
+function Pagegrid({ notices }) {
     return (
         <div className="flex-container">
             {notices?.map((notice, key) => (
@@ -11,4 +11,4 @@ function Page_grid({ notices }) {
         </div>
     )
 }
-export default Page_grid
+export default Pagegrid

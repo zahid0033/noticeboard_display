@@ -1,24 +1,40 @@
 import React, { useState, useEffect } from 'react'
 
-const SliderTemplate = ({ notices }) => {
+const SliderTemplate = ({ notice }) => {
     const [idx, setIdx] = useState(0)
+    const [time, setTime] = useState(notice.interval)
 
     useEffect(() => {
         const changeSlide = setTimeout(() => {
-            if (idx === notices.length - 1) {
+            if (idx === notice.materials.length - 1) {
                 setIdx(0)
             } else {
                 setIdx(d => d + 1)
             }
-        }, 10000)
+        }, Number(notice.interval) * 1000)
         return () => clearTimeout(changeSlide)
-    }, [idx, notices.length])
-
+    }, [idx, notice.materials.length, notice.interval])
+    useEffect(() => {
+        let countDown = setInterval(() => {
+            if (time === 1) {
+                setTime(notice?.interval)
+            } else {
+                setTime(t => t - 1)
+            }
+        }, 1000)
+        return () => clearInterval(countDown)
+    }, [time, notice.interval])
     return (
-        <div style={{ height: "100vh", display: "flex", justifyContent: "center", background: "#edf0f5" }}>
-            {notices[idx]?.material?.materialtype === 'Image' && <img src={notices[idx]?.material?.material} style={{ height: "100%" }} alt={notices[idx]?.material.name} />}
-            {notices[idx]?.material?.materialtype === 'Text' && <div className="text_slide"><h1>{notices[idx]?.material?.material}</h1></div>}
-        </div>
+        <>
+            <div className="counter">
+                <h1>Next Slide in: {time}</h1>
+                <p>Playing {idx} of {notice?.materials?.length}</p>
+            </div>
+            <div style={{ height: "90vh", display: "flex", justifyContent: "center", background: "#edf0f5" }}>
+                {notice?.materials[idx]?.materialtype === 'Image' && <img src={notice?.materials[idx]?.material} style={{ height: "100%" }} alt={notice?.materials[idx]?.name} />}
+                {notice?.materials[idx]?.materialtype === 'Text' && <div className="text_slide"><h1>{notice?.materials[idx]?.material}</h1></div>}
+            </div>
+        </>
     )
 
 }
