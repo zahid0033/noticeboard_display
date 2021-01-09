@@ -29,7 +29,7 @@ function GridSlider({ notice }) {
         <>
             <div className="counter">
                 <h1>Next Slide in: {time}</h1>
-                <p>Playing {idx} of {notice?.materials?.length}</p>
+                <p>Playing {idx + 1} of {notice?.materials?.length}</p>
             </div>
             <div className="flex-container">
                 <Fragment>
