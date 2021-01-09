@@ -28,8 +28,8 @@ function GridSlider({ notice }) {
     return (
         <>
             <div className="counter">
-                <h1>Next Slide in: {time}</h1>
-                <p>Playing {idx + 1} of {notice?.materials?.length}</p>
+                {/* <h1>Next Slide in: {time}</h1> */}
+                <h1>Playing {idx + 1} of {notice?.materials?.length}</h1>
             </div>
             <div className="flex-container">
                 <Fragment>
