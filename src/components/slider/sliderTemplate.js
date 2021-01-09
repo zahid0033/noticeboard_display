@@ -27,8 +27,8 @@ const SliderTemplate = ({ notice }) => {
     return (
         <>
             <div className="counter">
-                {/* <h1>Next Slide after: {time}</h1> */}
-                <h1>Playing {idx + 1} of {notice?.materials?.length}</h1>
+                <h1>{time}</h1>
+                <p>Playing {idx + 1} of {notice?.materials?.length}</p>
             </div>
             <div style={{ height: "90vh", display: "flex", justifyContent: "center", background: "#edf0f5" }}>
                 {notice?.materials[idx]?.materialtype === 'Image' && <img src={notice?.materials[idx]?.material} style={{ height: "100%" }} alt={notice?.materials[idx]?.name} />}
