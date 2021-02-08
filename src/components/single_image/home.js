@@ -39,13 +39,12 @@ const SingleImage = ({ notice }) => {
           <ReactPlayer
             width="100%"
             height="100%"
-            // muted={!playing}
+            muted={true}
             onReady={handleOnReady}
             playing={playing}
             url={notice.materials[0].material}
             loop={true}
             style={{
-              height: "100%",
               display: "block",
               marginLeft: "auto",
               marginRight: "auto",
