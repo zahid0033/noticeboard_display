@@ -52,7 +52,7 @@ function GridSlider({ notice, update }) {
                 width="100%"
                 height="100%"
                 url={notice?.materials[idx].material}
-                playing={true}
+                playing={playing}
                 loop={true}
               />
             </div>
