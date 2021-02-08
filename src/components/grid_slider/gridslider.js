@@ -1,10 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
-function GridSlider({ notice }) {
+function GridSlider({ notice, update }) {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice?.interval);
-
+  const [playing, setPlaying] = useState(false);
+  const handleOnReady = () => {
+    setTimeout(() => {
+      setPlaying(true);
+    }, 100);
+  };
   useEffect(() => {
     let changeSlide = setTimeout(() => {
       if (
@@ -29,7 +34,7 @@ function GridSlider({ notice }) {
       }
     }, 1000);
     return () => clearInterval(countDown);
-  }, [time, notice?.interval]);
+  }, [time, notice?.interval, update]);
 
   return (
     <>
@@ -44,6 +49,8 @@ function GridSlider({ notice }) {
           {notice?.materials[idx]?.materialtype === "Video" && (
             <div className="item">
               <ReactPlayer
+                width="100%"
+                height="100%"
                 url={notice?.materials[idx].material}
                 playing={true}
                 loop={true}
@@ -68,8 +75,9 @@ function GridSlider({ notice }) {
           {notice?.materials[idx + 1]?.materialtype === "Video" && (
             <div className="item">
               <ReactPlayer
+                onReady={handleOnReady}
+                playing={playing}
                 url={notice?.materials[idx + 1].material}
-                playing={true}
                 loop={true}
               />
             </div>
