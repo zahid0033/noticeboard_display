@@ -2,7 +2,12 @@ import React from "react";
 import ReactPlayer from "react-player";
 
 const SingleImage = ({ notice }) => {
-  console.log(notice);
+  const [playing, setPlaying] = useState(false);
+  const handleOnReady = () => {
+    setTimeout(() => {
+      setPlaying(true);
+    }, 100);
+  };
   return (
     <div style={{ height: "100vh" }}>
       <div style={{ height: "100%", position: "relative" }}>
@@ -32,8 +37,12 @@ const SingleImage = ({ notice }) => {
         )}
         {notice?.materials[0]?.materialtype === "Video" && (
           <ReactPlayer
+            width="100%"
+            height="100%"
+            muted={!update}
+            onReady={handleOnReady}
+            playing={playing}
             url={notice.materials[0].material}
-            playing={true}
             loop={true}
             style={{
               height: "100%",

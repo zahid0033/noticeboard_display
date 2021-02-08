@@ -4,7 +4,12 @@ import ReactPlayer from "react-player";
 const SliderTemplate = ({ notice }) => {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice.interval);
-
+  const [playing, setPlaying] = useState(false);
+  const handleOnReady = () => {
+    setTimeout(() => {
+      setPlaying(true);
+    }, 100);
+  };
   useEffect(() => {
     const changeSlide = setTimeout(() => {
       if (idx === notice.materials.length - 1) {
@@ -57,8 +62,12 @@ const SliderTemplate = ({ notice }) => {
           <ReactPlayer
             width="100%"
             height="100%"
+            width="100%"
+            height="100%"
+            muted={!update}
+            onReady={handleOnReady}
+            playing={playing}
             url={notice?.materials[idx].material}
-            playing={true}
             loop={true}
           />
         )}
