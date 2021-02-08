@@ -52,8 +52,9 @@ function GridSlider({ notice, update }) {
                 width="100%"
                 height="100%"
                 muted={!update}
-                url={notice?.materials[idx].material}
+                onReady={handleOnReady}
                 playing={playing}
+                url={notice?.materials[idx].material}
                 loop={true}
               />
             </div>
@@ -76,6 +77,9 @@ function GridSlider({ notice, update }) {
           {notice?.materials[idx + 1]?.materialtype === "Video" && (
             <div className="item">
               <ReactPlayer
+                width="100%"
+                height="100%"
+                muted={!update}
                 onReady={handleOnReady}
                 playing={playing}
                 url={notice?.materials[idx + 1].material}
@@ -101,8 +105,12 @@ function GridSlider({ notice, update }) {
           {notice?.materials[idx + 2]?.materialtype === "Video" && (
             <div className="item">
               <ReactPlayer
+                width="100%"
+                height="100%"
+                muted={!update}
+                onReady={handleOnReady}
+                playing={playing}
                 url={notice?.materials[idx + 1].material}
-                playing={true}
                 loop={true}
               />
             </div>
