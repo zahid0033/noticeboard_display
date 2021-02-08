@@ -33,6 +33,7 @@ function GridSlider({ notice, update }) {
         setTime((t) => t - 1);
       }
     }, 1000);
+    setIdx(0);
     return () => clearInterval(countDown);
   }, [time, notice?.interval, update]);
 
@@ -110,7 +111,7 @@ function GridSlider({ notice, update }) {
                 muted={true}
                 onReady={handleOnReady}
                 playing={playing}
-                url={notice?.materials[idx + 1].material}
+                url={notice?.materials[idx + 2].material}
                 loop={true}
               />
             </div>
