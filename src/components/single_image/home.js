@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
 
 const SingleImage = ({ notice }) => {
@@ -39,7 +39,7 @@ const SingleImage = ({ notice }) => {
           <ReactPlayer
             width="100%"
             height="100%"
-            muted={!update}
+            muted={!playing}
             onReady={handleOnReady}
             playing={playing}
             url={notice.materials[0].material}

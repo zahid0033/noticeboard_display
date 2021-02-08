@@ -62,9 +62,7 @@ const SliderTemplate = ({ notice }) => {
           <ReactPlayer
             width="100%"
             height="100%"
-            width="100%"
-            height="100%"
-            muted={!update}
+            muted={!playing}
             onReady={handleOnReady}
             playing={playing}
             url={notice?.materials[idx].material}
