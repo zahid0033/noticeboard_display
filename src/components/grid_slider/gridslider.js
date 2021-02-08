@@ -51,6 +51,7 @@ function GridSlider({ notice, update }) {
               <ReactPlayer
                 width="100%"
                 height="100%"
+                muted={!update}
                 url={notice?.materials[idx].material}
                 playing={playing}
                 loop={true}
