@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import { io } from "socket.io-client";
 // import { Route } from "react-router-dom";
-import Pagegrid from "./components/page_grid/page_grid";
+import PageSplit from "./components/page_split/page_split";
 // import Home from "./components/home";
 import SliderTemplate from "./components/slider/sliderTemplate";
 import SingleImage from "./components/single_image/home";
@@ -25,6 +25,7 @@ function App() {
       if (data.success) {
         setUpdate(Math.random());
         setNoticeBoard(data.noticeboard);
+        console.log(data.noticeboard);
         //alert('success')
       }
     } catch (error) {
@@ -48,21 +49,17 @@ function App() {
   }, []);
 
   return (
-    <div className="">
-      <header className="display_content">
-        {noticeboard?.notice?.viewtype === "grid" && (
-          <Pagegrid notice={noticeboard?.notice} update={update} />
-        )}
-        {noticeboard?.notice?.viewtype === "slider" && (
-          <SliderTemplate notice={noticeboard?.notice} />
-        )}
-        {noticeboard?.notice?.viewtype === "singleimage" && (
-          <SingleImage notice={noticeboard?.notice} />
-        )}
-        {noticeboard?.notice?.viewtype === "gridslider" && (
-          <GridSlider notice={noticeboard?.notice} />
-        )}
-      </header>
+    <div className="container-fluid p-0 m-0">
+      {noticeboard?.notice?.viewtype === "slider" && !noticeboard?.isSplit && (
+        <SliderTemplate notice={noticeboard?.notice} />
+      )}
+      {noticeboard?.notice?.viewtype === "singleimage" &&
+        !noticeboard?.isSplit && <SingleImage notice={noticeboard?.notice} />}
+      {noticeboard?.notice?.viewtype === "gridslider" &&
+        !noticeboard?.isSplit && <GridSlider notice={noticeboard?.notice} />}
+      {noticeboard?.isSplit && (
+        <PageSplit noticesets={noticeboard?.splitNoticeSets} />
+      )}
     </div>
   );
 }

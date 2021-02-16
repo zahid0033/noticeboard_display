@@ -32,24 +32,39 @@ const SliderTemplate = ({ notice }) => {
   }, [time, notice.interval]);
   return (
     <>
-      <div className="counter">
-        <h1>{time}</h1>
-        <p>
-          Playing {idx + 1} of {notice?.materials?.length}
-        </p>
-      </div>
-      <div
-        style={{
-          height: "90vh",
-          display: "flex",
-          justifyContent: "center",
-          background: "#edf0f5",
-        }}
+      <nav
+        className="navbar navbar-expand-lg fixed-top"
+        style={{ background: "rgba(0,0,0,0)" }}
       >
+        <div className="container-fluid">
+          <div className="navbar-brand">
+            <img
+              src="/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt=""
+              width="30"
+              height="24"
+            />
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+          }}
+        >
+          <span className="navbar-text">
+            Playing {idx + 1} of {notice?.materials?.length}
+          </span>
+          <span className="navbar-text">{time}</span>
+        </div>
+      </nav>
+      <div className="container-fluid">
         {notice?.materials[idx]?.materialtype === "Image" && (
           <img
+            className="img-fluid mx-auto d-block"
             src={notice?.materials[idx]?.material}
-            style={{ height: "100%" }}
+            style={{ height: "100vh" }}
             alt={notice?.materials[idx]?.name}
           />
         )}
