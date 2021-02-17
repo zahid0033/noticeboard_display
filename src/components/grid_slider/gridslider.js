@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
-function GridSlider({ notice, update }) {
+function GridSlider({ notice, update, logo }) {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice?.interval);
   const [playing, setPlaying] = useState(false);
@@ -35,22 +35,17 @@ function GridSlider({ notice, update }) {
     }, 1000);
     setIdx(0);
     return () => clearInterval(countDown);
-  }, [time, notice?.interval, update]);
+  }, [notice?.interval, update]);
 
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg fixed-top"
+        className="navbar navbar-expand-lg"
         style={{ background: "rgba(0,0,0,0)" }}
       >
         <div className="container-fluid">
           <div className="navbar-brand">
-            <img
-              src="/docs/5.0/assets/brand/bootstrap-logo.svg"
-              alt=""
-              width="30"
-              height="24"
-            />
+            <img src={logo} alt="" width="30" height="24" />
           </div>
         </div>
         <div
@@ -61,9 +56,9 @@ function GridSlider({ notice, update }) {
           }}
         >
           <span className="navbar-text">
-            Playing {idx + 1} of {notice?.materials?.length}
+            Playing {idx + 1} of {notice?.materials?.length / 3}
           </span>
-          <span className="navbar-text">{time}</span>
+          {/* <span className="navbar-text">{time}</span> */}
         </div>
       </nav>
       <div className="container-fluid">
@@ -83,17 +78,34 @@ function GridSlider({ notice, update }) {
               </div>
             )}
             {notice?.materials[idx]?.materialtype === "Image" && (
-              <div className="col">
+              <div
+                className="col"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
                 <img
                   className="img-fluid mx-auto d-block"
-                  style={{ maxHeight: "100vh" }}
                   src={notice?.materials[idx].material}
                   alt={notice?.materials[idx].name}
                 />
               </div>
             )}
             {notice?.materials[idx]?.materialtype === "Text" && (
-              <div className="col">
+              <div
+                className="col"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
                 <h1>{notice?.materials[idx].material}</h1>
               </div>
             )}
@@ -116,7 +128,6 @@ function GridSlider({ notice, update }) {
               <div className="col">
                 <img
                   className="img-fluid mx-auto d-block"
-                  style={{ maxHeight: "100vh" }}
                   src={notice?.materials[idx + 1].material}
                   alt={notice?.materials[idx + 1].name}
                 />
@@ -144,7 +155,6 @@ function GridSlider({ notice, update }) {
               <div className="col">
                 <img
                   className="img-fluid mx-auto d-block"
-                  style={{ maxHeight: "100vh" }}
                   src={notice?.materials[idx + 2].material}
                   alt={notice?.materials[idx + 2].name}
                 />

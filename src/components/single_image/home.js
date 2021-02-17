@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactPlayer from "react-player";
 
-const SingleImage = ({ notice }) => {
+const SingleImage = ({ notice, logo }) => {
   const [playing, setPlaying] = useState(false);
   const handleOnReady = () => {
     setTimeout(() => {
@@ -53,7 +53,7 @@ const SingleImage = ({ notice }) => {
         )}
         <div style={{ position: "absolute", top: "10px", right: "10px" }}>
           <img
-            src="https://i.ibb.co/dr0tvG7/The-World-Bank-Logo.png"
+            src={logo}
             alt=""
             style={{ width: "100px", borderRadius: "50%" }}
           />

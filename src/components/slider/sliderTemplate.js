@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 
-const SliderTemplate = ({ notice }) => {
+const SliderTemplate = ({ notice, logo }) => {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice.interval);
   const [playing, setPlaying] = useState(false);
@@ -38,12 +38,7 @@ const SliderTemplate = ({ notice }) => {
       >
         <div className="container-fluid">
           <div className="navbar-brand">
-            <img
-              src="/docs/5.0/assets/brand/bootstrap-logo.svg"
-              alt=""
-              width="30"
-              height="24"
-            />
+            <img src={logo} alt="" width="30" height="24" />
           </div>
         </div>
         <div

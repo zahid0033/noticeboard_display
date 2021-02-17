@@ -51,14 +51,29 @@ function App() {
   return (
     <div className="container-fluid p-0 m-0">
       {noticeboard?.notice?.viewtype === "slider" && !noticeboard?.isSplit && (
-        <SliderTemplate notice={noticeboard?.notice} />
+        <SliderTemplate update={update} notice={noticeboard?.notice} />
       )}
       {noticeboard?.notice?.viewtype === "singleimage" &&
-        !noticeboard?.isSplit && <SingleImage notice={noticeboard?.notice} />}
+        !noticeboard?.isSplit && (
+          <SingleImage
+            logo={noticeboard?.organization?.logo}
+            notice={noticeboard?.notice}
+          />
+        )}
       {noticeboard?.notice?.viewtype === "gridslider" &&
-        !noticeboard?.isSplit && <GridSlider notice={noticeboard?.notice} />}
+        !noticeboard?.isSplit && (
+          <GridSlider
+            logo={noticeboard?.organization?.logo}
+            update={update}
+            notice={noticeboard?.notice}
+          />
+        )}
       {noticeboard?.isSplit && (
-        <PageSplit noticesets={noticeboard?.splitNoticeSets} />
+        <PageSplit
+          logo={noticeboard?.organization?.logo}
+          update={update}
+          noticesets={noticeboard?.splitNoticeSets}
+        />
       )}
     </div>
   );
