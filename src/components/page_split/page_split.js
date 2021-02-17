@@ -8,60 +8,68 @@ function Pagegrid({ update, noticesets }) {
     console.log(noticesets[0]);
   }, [noticesets]);
   return (
-    <div id="noticecontainer">
-      {noticesets[0] && (
-        <div className="item">
-          {noticesets[0]?.viewtype === "slider" && (
-            <SplitSlider update={update} notice={noticesets[0]} />
-          )}
-          {noticesets[0]?.viewtype === "singleimage" && (
-            <Splitcontent notice={noticesets[0]} />
-          )}
-          {noticesets[0]?.viewtype === "gridslider" && (
-            <SplitGridSlider update={update} notice={noticesets[0]} />
-          )}
-        </div>
-      )}
-      {noticesets[1] && (
-        <div className="item">
-          {noticesets[1]?.viewtype === "slider" && (
-            <SplitSlider update={update} notice={noticesets[1]} />
-          )}
-          {noticesets[1]?.viewtype === "singleimage" && (
-            <Splitcontent notice={noticesets[1]} />
-          )}
-          {noticesets[1]?.viewtype === "gridslider" && (
-            <SplitGridSlider update={update} notice={noticesets[1]} />
-          )}
-        </div>
-      )}
-      {noticesets[2] && (
-        <div className="item">
-          {noticesets[2]?.viewtype === "slider" && (
-            <SplitSlider update={update} notice={noticesets[2]} />
-          )}
-          {noticesets[2]?.viewtype === "singleimage" && (
-            <Splitcontent notice={noticesets[2]} />
-          )}
-          {noticesets[2]?.viewtype === "gridslider" && (
-            <SplitGridSlider update={update} notice={noticesets[2]} />
-          )}
-        </div>
-      )}
-      {noticesets[3] && (
-        <div className="item">
-          {noticesets[3]?.viewtype === "slider" && (
-            <SplitSlider update={update} notice={noticesets[3]} />
-          )}
-          {noticesets[3]?.viewtype === "singleimage" && (
-            <Splitcontent notice={noticesets[3]} />
-          )}
-          {noticesets[3]?.viewtype === "gridslider" && (
-            <SplitGridSlider update={update} notice={noticesets[3]} />
-          )}
-        </div>
-      )}
-    </div>
+    <>
+      <div id="split left">
+        {noticesets[0] && (
+          <div className="item">
+            {noticesets[0]?.viewtype === "slider" && (
+              <SplitSlider update={update} notice={noticesets[0]} />
+            )}
+            {noticesets[0]?.viewtype === "singleimage" && (
+              <Splitcontent notice={noticesets[0]} />
+            )}
+            {noticesets[0]?.viewtype === "gridslider" && (
+              <SplitGridSlider update={update} notice={noticesets[0]} />
+            )}
+          </div>
+        )}
+      </div>
+      <div className="split right">
+        {noticesets[1] && (
+          <div className="item">
+            {noticesets[1]?.viewtype === "slider" && (
+              <SplitSlider update={update} notice={noticesets[1]} />
+            )}
+            {noticesets[1]?.viewtype === "singleimage" && (
+              <Splitcontent notice={noticesets[1]} />
+            )}
+            {noticesets[1]?.viewtype === "gridslider" && (
+              <SplitGridSlider update={update} notice={noticesets[1]} />
+            )}
+          </div>
+        )}
+      </div>
+      <div className="split bottom-left">
+        {noticesets[2] && (
+          <div className="item">
+            {noticesets[2]?.viewtype === "slider" && (
+              <SplitSlider update={update} notice={noticesets[2]} />
+            )}
+            {noticesets[2]?.viewtype === "singleimage" && (
+              <Splitcontent notice={noticesets[2]} />
+            )}
+            {noticesets[2]?.viewtype === "gridslider" && (
+              <SplitGridSlider update={update} notice={noticesets[2]} />
+            )}
+          </div>
+        )}
+      </div>
+      <div className="split bottom-right">
+        {noticesets[3] && (
+          <div className="item">
+            {noticesets[3]?.viewtype === "slider" && (
+              <SplitSlider update={update} notice={noticesets[3]} />
+            )}
+            {noticesets[3]?.viewtype === "singleimage" && (
+              <Splitcontent notice={noticesets[3]} />
+            )}
+            {noticesets[3]?.viewtype === "gridslider" && (
+              <SplitGridSlider update={update} notice={noticesets[3]} />
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 export default Pagegrid;
