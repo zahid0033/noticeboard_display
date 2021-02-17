@@ -159,25 +159,22 @@ video {
   display: block;
 } */
 
-/* #noticecontainer {
-  height: 100%;
+#noticecontainer {
+  height: 100vh;
   width: 100%;
-  font-size: 0;
-  margin: 0 auto;
 }
 .item {
-  display: inline-block;
-  vertical-align: top;
-  height: 100%;
+  float: left;
+  height: 50%;
   width: 50%;
 }
 img {
   margin-left: auto;
   margin-right: auto;
   height: 100%;
-} */
+}
 
-.split {
+/* .split {
   height: 50%;
   width: 50%;
   position: fixed;
@@ -216,4 +213,4 @@ img {
 .centered img {
   height: 100% !important;
   width: auto !important;
-}
+} */
