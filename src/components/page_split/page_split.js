@@ -15,7 +15,7 @@ function Pagegrid({ update, noticesets }) {
             className={` notice-container ${
               noticesets[0]?.viewtype === "gridslider"
                 ? "notice-container-grid"
-                : "notice-container"
+                : ""
             }`}
           >
             {noticesets[0]?.viewtype === "slider" && (
@@ -34,7 +34,7 @@ function Pagegrid({ update, noticesets }) {
             className={` notice-container ${
               noticesets[0]?.viewtype === "gridslider"
                 ? "notice-container-grid"
-                : "notice-container"
+                : ""
             }`}
           >
             {noticesets[1]?.viewtype === "slider" && (
@@ -55,7 +55,7 @@ function Pagegrid({ update, noticesets }) {
             className={` notice-container ${
               noticesets[0]?.viewtype === "gridslider"
                 ? "notice-container-grid"
-                : "notice-container"
+                : ""
             }`}
           >
             {noticesets[2]?.viewtype === "slider" && (
@@ -74,7 +74,7 @@ function Pagegrid({ update, noticesets }) {
             className={` notice-container ${
               noticesets[0]?.viewtype === "gridslider"
                 ? "notice-container-grid"
-                : "notice-container"
+                : ""
             }`}
           >
             {noticesets[3]?.viewtype === "slider" && (
