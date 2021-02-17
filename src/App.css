@@ -123,9 +123,9 @@ p {
   justify-content: center;
   align-items: center;
 }
-img {
+/* img {
   height: 100%;
-}
+} */
 video {
   height: 100%;
 }
@@ -149,7 +149,7 @@ video {
   align-items: center;
 } */
 
-.notice-container {
+/* .notice-container {
   width: 50%;
   max-height: 50vh;
 }
@@ -157,4 +157,22 @@ video {
   width: inherit;
   height: auto !important;
   display: block;
+} */
+
+#noticecontainer {
+  height: 100%;
+  width: 100%;
+  font-size: 0;
+  margin: 0 auto;
+}
+.item {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  width: 50%;
+}
+img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
 }

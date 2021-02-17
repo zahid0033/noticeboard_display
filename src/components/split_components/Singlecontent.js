@@ -11,7 +11,11 @@ export default function Singlecontent({ notice }) {
   return (
     <>
       {notice?.materials[0]?.materialtype === "Image" && (
-        <img src={notice.materials[0].material} alt="" />
+        <img
+          className="img-fluid rounded d-block"
+          src={notice.materials[0].material}
+          alt=""
+        />
       )}
       {notice?.materials[0]?.materialtype === "Text" && (
         <h1>{notice.materials[0].material}</h1>

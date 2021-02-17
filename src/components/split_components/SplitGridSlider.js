@@ -51,6 +51,7 @@ export default function SplitGridSlider({ notice, update }) {
         )}
         {notice?.materials[idx]?.materialtype === "Image" && (
           <img
+            className="img-fluid rounded d-block"
             src={notice?.materials[idx].material}
             alt={notice?.materials[idx].name}
           />
@@ -71,6 +72,7 @@ export default function SplitGridSlider({ notice, update }) {
         )}
         {notice?.materials[idx + 1]?.materialtype === "Image" && (
           <img
+            className="img-fluid rounded d-block"
             src={notice?.materials[idx + 1].material}
             alt={notice?.materials[idx + 1].name}
           />
@@ -93,6 +95,7 @@ export default function SplitGridSlider({ notice, update }) {
         )}
         {notice?.materials[idx + 2]?.materialtype === "Image" && (
           <img
+            className="img-fluid rounded d-block"
             src={notice?.materials[idx + 2].material}
             alt={notice?.materials[idx + 2].name}
           />

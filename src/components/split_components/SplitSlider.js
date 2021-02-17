@@ -34,6 +34,7 @@ export default function SplitSlider({ notice }) {
     <>
       {notice?.materials[idx]?.materialtype === "Image" && (
         <img
+          className="img-fluid rounded d-block"
           src={notice?.materials[idx]?.material}
           alt={notice?.materials[idx]?.name}
         />
