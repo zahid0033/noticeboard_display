@@ -32,7 +32,7 @@ const SliderTemplate = ({ notice, logo }) => {
   }, [time, notice.interval]);
   return (
     <>
-      <nav
+      {/* <nav
         className="navbar navbar-expand-lg fixed-top"
         style={{ background: "rgba(0,0,0,0)" }}
       >
@@ -53,7 +53,7 @@ const SliderTemplate = ({ notice, logo }) => {
           </span>
           <span className="navbar-text">{time}</span>
         </div>
-      </nav>
+      </nav> */}
       <div className="container-fluid">
         {notice?.materials[idx]?.materialtype === "Image" && (
           <img

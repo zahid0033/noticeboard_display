@@ -39,7 +39,7 @@ function GridSlider({ notice, update, logo }) {
 
   return (
     <>
-      <nav
+      {/* <nav
         className="navbar navbar-expand-lg"
         style={{ background: "rgba(0,0,0,0)" }}
       >
@@ -58,9 +58,9 @@ function GridSlider({ notice, update, logo }) {
           <span className="navbar-text">
             Playing {idx + 1} of {notice?.materials?.length / 3}
           </span>
-          {/* <span className="navbar-text">{time}</span> */}
+          <span className="navbar-text">{time}</span>
         </div>
-      </nav>
+      </nav> */}
       <div className="container-fluid">
         <div className="row">
           <Fragment>
