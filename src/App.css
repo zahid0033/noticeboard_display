@@ -170,6 +170,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 img {
   margin-left: auto;
