@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
 function GridSlider({ notice, update, logo }) {
@@ -39,8 +39,8 @@ function GridSlider({ notice, update, logo }) {
 
   return (
     <>
-      {/* <nav
-        className="navbar navbar-expand-lg"
+      <nav
+        className=" container-fluid navbar navbar-expand-lg"
         style={{ background: "rgba(0,0,0,0)" }}
       >
         <div className="container-fluid">
@@ -60,112 +60,71 @@ function GridSlider({ notice, update, logo }) {
           </span>
           <span className="navbar-text">{time}</span>
         </div>
-      </nav> */}
-      <div className="container-fluid">
-        <div className="row">
-          <Fragment>
-            {notice?.materials[idx]?.materialtype === "Video" && (
-              <div className="col">
-                <ReactPlayer
-                  width="100%"
-                  height="100%"
-                  muted={true}
-                  onReady={handleOnReady}
-                  playing={playing}
-                  url={notice?.materials[idx].material}
-                  loop={true}
-                />
-              </div>
-            )}
-            {notice?.materials[idx]?.materialtype === "Image" && (
-              <div
-                className="col"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100%",
-                }}
-              >
-                <img
-                  className="img-fluid mx-auto d-block"
-                  src={notice?.materials[idx].material}
-                  alt={notice?.materials[idx].name}
-                />
-              </div>
-            )}
-            {notice?.materials[idx]?.materialtype === "Text" && (
-              <div
-                className="col"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100%",
-                }}
-              >
-                <h1>{notice?.materials[idx].material}</h1>
-              </div>
-            )}
-          </Fragment>
-          <Fragment>
-            {notice?.materials[idx + 1]?.materialtype === "Video" && (
-              <div className="col">
-                <ReactPlayer
-                  width="100%"
-                  height="100%"
-                  muted={true}
-                  onReady={handleOnReady}
-                  playing={playing}
-                  url={notice?.materials[idx + 1].material}
-                  loop={true}
-                />
-              </div>
-            )}
-            {notice?.materials[idx + 1]?.materialtype === "Image" && (
-              <div className="col">
-                <img
-                  className="img-fluid mx-auto d-block"
-                  src={notice?.materials[idx + 1].material}
-                  alt={notice?.materials[idx + 1].name}
-                />
-              </div>
-            )}
-            {notice?.materials[idx + 1]?.materialtype === "Text" && (
-              <div className="col">
-                <h1>{notice?.materials[idx + 1].material}</h1>
-              </div>
-            )}
-          </Fragment>
-          <Fragment>
-            {notice?.materials[idx + 2]?.materialtype === "Video" && (
-              <div className="col">
-                <ReactPlayer
-                  muted={true}
-                  onReady={handleOnReady}
-                  playing={playing}
-                  url={notice?.materials[idx + 2].material}
-                  loop={true}
-                />
-              </div>
-            )}
-            {notice?.materials[idx + 2]?.materialtype === "Image" && (
-              <div className="col">
-                <img
-                  className="img-fluid mx-auto d-block"
-                  src={notice?.materials[idx + 2].material}
-                  alt={notice?.materials[idx + 2].name}
-                />
-              </div>
-            )}
-            {notice?.materials[idx + 2]?.materialtype === "Text" && (
-              <div className="col">
-                <h1>{notice?.materials[idx + 2].material}</h1>
-              </div>
-            )}
-          </Fragment>
+      </nav>
+      <div className="grid-slider">
+        <div className="item">
+          {notice?.materials[idx]?.materialtype === "Video" && (
+            <ReactPlayer
+              width="100%"
+              height="100%"
+              muted={true}
+              onReady={handleOnReady}
+              playing={playing}
+              url={notice?.materials[idx].material}
+              loop={true}
+            />
+          )}
+          {notice?.materials[idx]?.materialtype === "Image" && (
+            <img
+              src={notice?.materials[idx].material}
+              alt={notice?.materials[idx].name}
+            />
+          )}
+          {notice?.materials[idx]?.materialtype === "Text" && (
+            <h1>{notice?.materials[idx].material}</h1>
+          )}
+        </div>
+        <div className="item">
+          {notice?.materials[idx + 1]?.materialtype === "Video" && (
+            <ReactPlayer
+              width="100%"
+              height="100%"
+              muted={true}
+              onReady={handleOnReady}
+              playing={playing}
+              url={notice?.materials[idx + 1].material}
+              loop={true}
+            />
+          )}
+          {notice?.materials[idx + 1]?.materialtype === "Image" && (
+            <img
+              src={notice?.materials[idx + 1].material}
+              alt={notice?.materials[idx + 1].name}
+            />
+          )}
+          {notice?.materials[idx + 1]?.materialtype === "Text" && (
+            <h1>{notice?.materials[idx + 1].material}</h1>
+          )}
+        </div>
+        <div className="item">
+          {notice?.materials[idx + 2]?.materialtype === "Video" && (
+            <ReactPlayer
+              muted={true}
+              onReady={handleOnReady}
+              playing={playing}
+              url={notice?.materials[idx + 2].material}
+              loop={true}
+            />
+          )}
+          {notice?.materials[idx + 2]?.materialtype === "Image" && (
+            <img
+              src={notice?.materials[idx + 2].material}
+              alt={notice?.materials[idx + 2].name}
+            />
+          )}
+          {notice?.materials[idx + 2]?.materialtype === "Text" && (
+            <h1>{notice?.materials[idx + 2].material}</h1>
+          )}
         </div>
       </div>
     </>

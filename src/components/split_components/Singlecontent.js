@@ -14,7 +14,7 @@ export default function Singlecontent({ notice }) {
         <img src={notice.materials[0].material} alt="" />
       )}
       {notice?.materials[0]?.materialtype === "Text" && (
-        <h1>{notice.materials[0].material}</h1>
+        <pre>{notice.materials[0].material}</pre>
       )}
       {notice?.materials[0]?.materialtype === "Video" && (
         <ReactPlayer

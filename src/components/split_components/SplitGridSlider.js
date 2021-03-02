@@ -56,7 +56,7 @@ export default function SplitGridSlider({ notice, update }) {
           />
         )}
         {notice?.materials[idx]?.materialtype === "Text" && (
-          <h1>{notice?.materials[idx].material}</h1>
+          <pre>{notice?.materials[idx].material}</pre>
         )}
       </div>
       <div className="noticeset-2">
@@ -76,9 +76,7 @@ export default function SplitGridSlider({ notice, update }) {
           />
         )}
         {notice?.materials[idx + 1]?.materialtype === "Text" && (
-          <div>
-            <h1>{notice?.materials[idx + 1].material}</h1>
-          </div>
+          <pre>{notice?.materials[idx + 1].material}</pre>
         )}
       </div>
       <div className="noticeset-3">
@@ -98,7 +96,11 @@ export default function SplitGridSlider({ notice, update }) {
           />
         )}
         {notice?.materials[idx + 2]?.materialtype === "Text" && (
-          <h1>{notice?.materials[idx + 2].material}</h1>
+          <pre>
+            {"     ::"}
+            <h1>{notice?.materials[idx + 2].material}</h1>
+            {"::     "}
+          </pre>
         )}
       </div>
     </>
