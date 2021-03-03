@@ -49,7 +49,7 @@ function App() {
   }, []);
 
   return (
-    <div className="container-fluid p-0 m-0">
+    <div className="">
       {noticeboard?.notice?.viewtype === "slider" && !noticeboard?.isSplit && (
         <SliderTemplate update={update} notice={noticeboard?.notice} />
       )}
