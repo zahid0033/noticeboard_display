@@ -62,9 +62,10 @@ function GridSlider({ notice, update, logo }) {
         </div>
       </nav>
       <div className="grid-slider">
-        <div className="item">
           {notice?.materials[idx]?.materialtype === "Video" && (
-            <ReactPlayer
+              <div className="item">
+
+              <ReactPlayer
               width="100%"
               height="100%"
               muted={true}
@@ -73,20 +74,29 @@ function GridSlider({ notice, update, logo }) {
               url={notice?.materials[idx].material}
               loop={true}
             />
+              </div>
+
           )}
           {notice?.materials[idx]?.materialtype === "Image" && (
-            <img
+              <div className="item">
+
+              <img
               src={notice?.materials[idx].material}
               alt={notice?.materials[idx].name}
             />
+              </div>
+
           )}
           {notice?.materials[idx]?.materialtype === "Text" && (
-            <h1>{notice?.materials[idx].material}</h1>
+              <div className="item">
+
+              <h1>{notice?.materials[idx].material}</h1>
+              </div>
+
           )}
-        </div>
-        <div className="item">
           {notice?.materials[idx + 1]?.materialtype === "Video" && (
-            <ReactPlayer
+              <div className="item">
+              <ReactPlayer
               width="100%"
               height="100%"
               muted={true}
@@ -95,19 +105,26 @@ function GridSlider({ notice, update, logo }) {
               url={notice?.materials[idx + 1].material}
               loop={true}
             />
-          )}
+            </div>
+
+            )}
           {notice?.materials[idx + 1]?.materialtype === "Image" && (
+            <div className="item">
             <img
               src={notice?.materials[idx + 1].material}
               alt={notice?.materials[idx + 1].name}
             />
-          )}
+            </div>
+
+            )}
           {notice?.materials[idx + 1]?.materialtype === "Text" && (
+            <div className="item">
             <h1>{notice?.materials[idx + 1].material}</h1>
-          )}
-        </div>
-        <div className="item">
+            </div>
+
+            )}
           {notice?.materials[idx + 2]?.materialtype === "Video" && (
+            <div className="item">
             <ReactPlayer
               muted={true}
               onReady={handleOnReady}
@@ -115,17 +132,21 @@ function GridSlider({ notice, update, logo }) {
               url={notice?.materials[idx + 2].material}
               loop={true}
             />
-          )}
+            </div>
+            )}
           {notice?.materials[idx + 2]?.materialtype === "Image" && (
+            <div className="item">
             <img
               src={notice?.materials[idx + 2].material}
               alt={notice?.materials[idx + 2].name}
             />
-          )}
+            </div>
+            )}
           {notice?.materials[idx + 2]?.materialtype === "Text" && (
+            <div className="item">
             <h1>{notice?.materials[idx + 2].material}</h1>
-          )}
-        </div>
+            </div>
+            )}
       </div>
     </>
   );
