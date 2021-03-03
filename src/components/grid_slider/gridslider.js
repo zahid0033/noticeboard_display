@@ -35,13 +35,13 @@ function GridSlider({ notice, update, logo }) {
     }, 1000);
     setIdx(0);
     return () => clearInterval(countDown);
-  }, [notice?.interval, update]);
+  }, [notice?.interval, time]);
 
   return (
     <>
       <nav
         className=" container-fluid navbar navbar-expand-lg"
-        style={{ background: "rgba(0,0,0,0)" }}
+        style={{ background: "rgba(0,0,0,0)",position:'absolute' }}
       >
         <div className="container-fluid">
           <div className="navbar-brand">
