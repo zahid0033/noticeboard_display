@@ -87,6 +87,9 @@ video {
     -ms-flex: 1; /* IE 10 */
     flex: 1;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
     img,
     video {
       width: 100%;
