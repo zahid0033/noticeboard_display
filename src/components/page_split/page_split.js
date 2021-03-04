@@ -11,7 +11,7 @@ function Pagegrid({ update, noticesets }) {
     <>
       <div id="noticecontainer">
         {noticesets[0] && (
-          <div className="item">
+          <div className="items">
             {noticesets[0]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[0]} />
             )}
@@ -24,7 +24,7 @@ function Pagegrid({ update, noticesets }) {
           </div>
         )}
         {noticesets[1] && (
-          <div className="item">
+          <div className="items">
             {noticesets[1]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[1]} />
             )}
@@ -37,7 +37,7 @@ function Pagegrid({ update, noticesets }) {
           </div>
         )}
         {noticesets[2] && (
-          <div className="item">
+          <div className="items">
             {noticesets[2]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[2]} />
             )}
@@ -50,7 +50,7 @@ function Pagegrid({ update, noticesets }) {
           </div>
         )}
         {noticesets[3] && (
-          <div className="item">
+          <div className="items">
             {noticesets[3]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[3]} />
             )}
