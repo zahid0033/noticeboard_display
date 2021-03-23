@@ -62,17 +62,21 @@
     align-items: center;
     justify-content: center;
     img {
-      margin-left: auto;
-      margin-right: auto;
+      // margin-left: auto;
+      // margin-right: auto;
+      // height: 100%;
+      // display: block;
       height: 100%;
-      display: block;
+      width: 100%;
+      object-fit: contain;
       image-rendering: auto;
     }
 
     video {
       height: 100%;
       width: 100%;
-      display: block;
+      // display: block;
+      object-fit: contain;
     }
   }
 }
