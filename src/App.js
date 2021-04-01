@@ -3,7 +3,7 @@ import "./App.scss";
 import axios from "axios";
 import { io } from "socket.io-client";
 // import { Route } from "react-router-dom";
-import PageSplit from "./components/page_split/page_split";
+import { PageSplit } from "./components/page_split/pagesplit";
 // import Home from "./components/home";
 import SliderTemplate from "./components/slider/sliderTemplate";
 import SingleImage from "./components/single_image/home";
