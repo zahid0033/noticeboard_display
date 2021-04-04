@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import SplitGridSlider from "../split_components/SplitGridSlider";
 import SplitSlider from "../split_components/SplitSlider";
 import Splitcontent from "../split_components/Singlecontent";
-export const PageSplit = ({ update, noticesets }) => {
+const PageSplitThreeTwo = ({ update, noticesets }) => {
   useEffect(() => {
     console.log(noticesets[0]);
   }, [noticesets]);
@@ -52,3 +52,4 @@ export const PageSplit = ({ update, noticesets }) => {
     </>
   );
 };
+export default PageSplitThreeTwo;

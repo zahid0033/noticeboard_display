@@ -3,7 +3,7 @@ import SplitGridSlider from "../split_components/SplitGridSlider";
 import SplitSlider from "../split_components/SplitSlider";
 import Splitcontent from "../split_components/Singlecontent";
 
-function Pagegrid({ update, noticesets }) {
+function PageSplitThreeThree({ update, noticesets }) {
   useEffect(() => {
     console.log(noticesets[0]);
   }, [noticesets]);
@@ -11,7 +11,7 @@ function Pagegrid({ update, noticesets }) {
     <>
       <div id="noticecontainer">
         {noticesets[0] && (
-          <div className="items">
+          <div className="threethree">
             {noticesets[0]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[0]} />
             )}
@@ -24,7 +24,7 @@ function Pagegrid({ update, noticesets }) {
           </div>
         )}
         {noticesets[1] && (
-          <div className="items">
+          <div className="threethree">
             {noticesets[1]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[1]} />
             )}
@@ -37,7 +37,7 @@ function Pagegrid({ update, noticesets }) {
           </div>
         )}
         {noticesets[2] && (
-          <div className="items">
+          <div className="threethree">
             {noticesets[2]?.viewtype === "slider" && (
               <SplitSlider update={update} notice={noticesets[2]} />
             )}
@@ -66,4 +66,4 @@ function Pagegrid({ update, noticesets }) {
     </>
   );
 }
-export default Pagegrid;
+export default PageSplitThreeThree;

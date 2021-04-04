@@ -3,11 +3,12 @@ import "./App.scss";
 import axios from "axios";
 import { io } from "socket.io-client";
 // import { Route } from "react-router-dom";
-import { PageSplit } from "./components/page_split/pagesplit";
+import PageSplitThreeThree from "./components/page_split/pageSplitThreeThree";
+import PageSplitThreeTwo from "./components/page_split/pageSplitThreeTwo";
 // import Home from "./components/home";
-import SliderTemplate from "./components/slider/sliderTemplate";
-import SingleImage from "./components/single_image/home";
-import GridSlider from "./components/grid_slider/gridslider";
+// import SliderTemplate from "./components/slider/sliderTemplate";
+// import SingleImage from "./components/single_image/home";
+// import GridSlider from "./components/grid_slider/gridslider";
 // import SingleImageHeadline from "./components/single_image_headline/home";
 // import { BrowserRouter, Switch } from "react-router-dom";
 const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
@@ -50,7 +51,7 @@ function App() {
 
   return (
     <div className="">
-      {noticeboard?.notice?.viewtype === "slider" && !noticeboard?.isSplit && (
+      {/* {noticeboard?.notice?.viewtype === "slider" && !noticeboard?.isSplit && (
         <SliderTemplate update={update} notice={noticeboard?.notice} />
       )}
       {noticeboard?.notice?.viewtype === "singleimage" &&
@@ -67,9 +68,16 @@ function App() {
             update={update}
             notice={noticeboard?.notice}
           />
-        )}
-      {noticeboard?.isSplit && (
-        <PageSplit
+        )} */}
+      {noticeboard?.splitType === "three-two" && (
+        <PageSplitThreeTwo
+          logo={noticeboard?.organization?.logo}
+          update={update}
+          noticesets={noticeboard?.splitNoticeSets}
+        />
+      )}
+      {noticeboard?.splitType === "three-three" && (
+        <PageSplitThreeThree
           logo={noticeboard?.organization?.logo}
           update={update}
           noticesets={noticeboard?.splitNoticeSets}
