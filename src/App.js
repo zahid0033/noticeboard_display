@@ -51,10 +51,10 @@ function App() {
 
   return (
     <div className="">
-      {/* {noticeboard?.notice?.viewtype === "slider" && !noticeboard?.isSplit && (
+      {/* {noticeboard?.notice?.viewtype === "imagetextslider" && !noticeboard?.isSplit && (
         <SliderTemplate update={update} notice={noticeboard?.notice} />
       )}
-      {noticeboard?.notice?.viewtype === "singleimage" &&
+      {noticeboard?.notice?.viewtype === "singlecontent" &&
         !noticeboard?.isSplit && (
           <SingleImage
             logo={noticeboard?.organization?.logo}

@@ -11,10 +11,10 @@ const PageSplitThreeTwo = ({ update, noticesets }) => {
       <div id="noticecontainer">
         {noticesets[0] && (
           <div className="itemz">
-            {noticesets[0]?.viewtype === "slider" && (
+            {noticesets[0]?.viewtype === "imagetextslider" && (
               <SplitSlider update={update} notice={noticesets[0]} />
             )}
-            {noticesets[0]?.viewtype === "singleimage" && (
+            {noticesets[0]?.viewtype === "singlecontent" && (
               <Splitcontent notice={noticesets[0]} />
             )}
             {noticesets[0]?.viewtype === "gridslider" && (
@@ -24,10 +24,10 @@ const PageSplitThreeTwo = ({ update, noticesets }) => {
         )}
         {noticesets[1] && (
           <div className="items">
-            {noticesets[1]?.viewtype === "slider" && (
+            {noticesets[1]?.viewtype === "imagetextslider" && (
               <SplitSlider update={update} notice={noticesets[1]} />
             )}
-            {noticesets[1]?.viewtype === "singleimage" && (
+            {noticesets[1]?.viewtype === "singlecontent" && (
               <Splitcontent notice={noticesets[1]} />
             )}
             {noticesets[1]?.viewtype === "gridslider" && (
@@ -37,10 +37,10 @@ const PageSplitThreeTwo = ({ update, noticesets }) => {
         )}
         {noticesets[2] && (
           <div className="items">
-            {noticesets[2]?.viewtype === "slider" && (
+            {noticesets[2]?.viewtype === "imagetextslider" && (
               <SplitSlider update={update} notice={noticesets[2]} />
             )}
-            {noticesets[2]?.viewtype === "singleimage" && (
+            {noticesets[2]?.viewtype === "singlecontent" && (
               <Splitcontent notice={noticesets[2]} />
             )}
             {noticesets[2]?.viewtype === "gridslider" && (
