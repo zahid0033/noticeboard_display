@@ -41,12 +41,15 @@ function App() {
       type: "board",
       id: boardId,
     };
+    // io.join(boardId)
     socket.emit("connected", data);
+    socket.emit("join", boardId);
   };
 
   useEffect(() => {
     socket.on("connect", connectBoard);
     socket.on("update", getnoticeboard);
+    getnoticeboard();
   }, []);
 
   return (
@@ -71,6 +74,7 @@ function App() {
         )} */}
       {noticeboard?.splitType === "three-two" && (
         <PageSplitThreeTwo
+          headline={noticeboard?.headline}
           logo={noticeboard?.organization?.logo}
           update={update}
           noticesets={noticeboard?.splitNoticeSets}
@@ -78,10 +82,21 @@ function App() {
       )}
       {noticeboard?.splitType === "three-three" && (
         <PageSplitThreeThree
+          headline={noticeboard?.headline}
           logo={noticeboard?.organization?.logo}
           update={update}
           noticesets={noticeboard?.splitNoticeSets}
         />
+      )}
+      {noticeboard?.headline && (
+        <div style={{ height: "10vh" }}>
+          {/*eslint-disable-next-line */}
+          <marquee
+            style={{ height: "8vh", fontSize: "8vh", lineHeight: "8vh" }}
+          >
+            {noticeboard?.headline}
+          </marquee>
+        </div>
       )}
     </div>
   );

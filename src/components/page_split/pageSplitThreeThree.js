@@ -3,13 +3,13 @@ import SplitGridSlider from "../split_components/SplitGridSlider";
 import SplitSlider from "../split_components/SplitSlider";
 import Splitcontent from "../split_components/Singlecontent";
 
-function PageSplitThreeThree({ update, noticesets }) {
+function PageSplitThreeThree({ update, noticesets, headline }) {
   useEffect(() => {
     console.log(noticesets[0]);
   }, [noticesets]);
   return (
     <>
-      <div id="noticecontainer">
+      <div id="noticecontainer" style={{ height: headline ? "90vh" : "100vh" }}>
         {noticesets[0] && (
           <div className="threethree">
             {noticesets[0]?.viewtype === "imagetextslider" && (
