@@ -92,7 +92,12 @@ function App() {
         <div style={{ height: "10vh" }}>
           {/*eslint-disable-next-line */}
           <marquee
-            style={{ height: "8vh", fontSize: "8vh", lineHeight: "8vh" }}
+            style={{
+              height: "6vh",
+              fontSize: "6vh",
+              lineHeight: "6vh",
+              padding: "10px",
+            }}
           >
             {noticeboard?.headline}
           </marquee>
