@@ -3,8 +3,13 @@ import "./App.scss";
 import axios from "axios";
 import { io } from "socket.io-client";
 // import { Route } from "react-router-dom";
-import PageSplitThreeThree from "./components/page_split/pageSplitThreeThree";
-import PageSplitThreeTwo from "./components/page_split/pageSplitThreeTwo";
+import PageSplitOne from "./components/PageSplitOne";
+import PageSplitTwo from "./components/PageSplitTwo";
+import PageSplitThreeThree from "./components/PageSplitThreeThree";
+import PageSplitThreeTwoRight from "./components/PageSplitThreeTwoRight";
+import PageSplitThreeTwoLeft from "./components/PageSplitThreeTwoLeft";
+import PageSplitFour from "./components/PageSplitFour";
+
 // import Home from "./components/home";
 // import SliderTemplate from "./components/slider/sliderTemplate";
 // import SingleImage from "./components/single_image/home";
@@ -13,7 +18,10 @@ import PageSplitThreeTwo from "./components/page_split/pageSplitThreeTwo";
 // import { BrowserRouter, Switch } from "react-router-dom";
 const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
 
-const socket = io(REACT_APP_NOT_AXIOS_BASE_URL);
+const socket = io(REACT_APP_NOT_AXIOS_BASE_URL, {
+  transports: ["websocket"],
+  upgrade: false,
+});
 
 function App() {
   const [noticeboard, setNoticeBoard] = useState({});
@@ -54,34 +62,48 @@ function App() {
 
   return (
     <div className="">
-      {/* {noticeboard?.notice?.viewtype === "imagetextslider" && !noticeboard?.isSplit && (
-        <SliderTemplate update={update} notice={noticeboard?.notice} />
-      )}
-      {noticeboard?.notice?.viewtype === "singlecontent" &&
-        !noticeboard?.isSplit && (
-          <SingleImage
-            logo={noticeboard?.organization?.logo}
-            notice={noticeboard?.notice}
-          />
-        )}
-      {noticeboard?.notice?.viewtype === "gridslider" &&
-        !noticeboard?.isSplit && (
-          <GridSlider
-            logo={noticeboard?.organization?.logo}
-            update={update}
-            notice={noticeboard?.notice}
-          />
-        )} */}
-      {noticeboard?.splitType === "three-two" && (
-        <PageSplitThreeTwo
+      {noticeboard?.splitType === "onedisplay" && (
+        <PageSplitOne
           headline={noticeboard?.headline}
           logo={noticeboard?.organization?.logo}
           update={update}
           noticesets={noticeboard?.splitNoticeSets}
         />
       )}
-      {noticeboard?.splitType === "three-three" && (
+      {noticeboard?.splitType === "twosplit" && (
+        <PageSplitTwo
+          headline={noticeboard?.headline}
+          logo={noticeboard?.organization?.logo}
+          update={update}
+          noticesets={noticeboard?.splitNoticeSets}
+        />
+      )}
+      {noticeboard?.splitType === "threetworight" && (
+        <PageSplitThreeTwoRight
+          headline={noticeboard?.headline}
+          logo={noticeboard?.organization?.logo}
+          update={update}
+          noticesets={noticeboard?.splitNoticeSets}
+        />
+      )}
+      {noticeboard?.splitType === "threetwoleft" && (
+        <PageSplitThreeTwoLeft
+          headline={noticeboard?.headline}
+          logo={noticeboard?.organization?.logo}
+          update={update}
+          noticesets={noticeboard?.splitNoticeSets}
+        />
+      )}
+      {noticeboard?.splitType === "threesplit" && (
         <PageSplitThreeThree
+          headline={noticeboard?.headline}
+          logo={noticeboard?.organization?.logo}
+          update={update}
+          noticesets={noticeboard?.splitNoticeSets}
+        />
+      )}
+      {noticeboard?.splitType === "foursplit" && (
+        <PageSplitFour
           headline={noticeboard?.headline}
           logo={noticeboard?.organization?.logo}
           update={update}

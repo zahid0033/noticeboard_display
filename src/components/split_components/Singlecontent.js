@@ -18,6 +18,8 @@ export default function Singlecontent({ notice }) {
       )}
       {notice?.materials[0]?.materialtype === "Video" && (
         <ReactPlayer
+          height="100%"
+          width="100%"
           muted
           onReady={handleOnReady}
           playing={playing}

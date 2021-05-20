@@ -48,6 +48,8 @@ export default function SplitSlider({ notice }) {
           playing={playing}
           url={notice?.materials[idx].material}
           loop={true}
+          height="100%"
+          width="100%"
         />
       )}
     </>

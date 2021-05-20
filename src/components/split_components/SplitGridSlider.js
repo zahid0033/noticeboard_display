@@ -47,6 +47,8 @@ export default function SplitGridSlider({ notice, update }) {
             playing={playing}
             url={notice?.materials[idx].material}
             loop={true}
+            height="100%"
+            width="100%"
           />
         )}
         {notice?.materials[idx]?.materialtype === "Image" && (
@@ -67,6 +69,8 @@ export default function SplitGridSlider({ notice, update }) {
             playing={playing}
             url={notice?.materials[idx + 1].material}
             loop={true}
+            height="100%"
+            width="100%"
           />
         )}
         {notice?.materials[idx + 1]?.materialtype === "Image" && (
@@ -87,6 +91,8 @@ export default function SplitGridSlider({ notice, update }) {
             playing={playing}
             url={notice?.materials[idx + 2].material}
             loop={true}
+            height="100%"
+            width="100%"
           />
         )}
         {notice?.materials[idx + 2]?.materialtype === "Image" && (
