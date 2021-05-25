@@ -7,7 +7,7 @@ const PageSplitThreeThree = ({ update, noticesets, headline }) => {
     <div
       id="noticecontainer"
       style={{
-        height: headline ? "90vh" : "100vh",
+        height: headline ? "80vh" : "90vh",
         display: "flex",
         flexDirection: "row",
         flexWrap: "nowrap",

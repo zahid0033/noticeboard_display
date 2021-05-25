@@ -4,7 +4,7 @@ import SplitSlider from "./split_components/SplitSlider";
 import Splitcontent from "./split_components/Singlecontent";
 const PageSplitFour = ({ update, noticesets, headline }) => {
   return (
-    <div id="noticecontainer" style={{ height: headline ? "90vh" : "100vh" }}>
+    <div id="noticecontainer" style={{ height: headline ? "80vh" : "90vh" }}>
       {noticesets[0] && (
         <div className="items">
           {noticesets[0]?.viewtype === "imagetextslider" && (

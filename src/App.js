@@ -61,7 +61,28 @@ function App() {
   }, []);
 
   return (
-    <div className="">
+    <div className="tttt">
+      <div
+        style={{
+          height: "10vh",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src={noticeboard?.organization?.logo}
+          alt="logo"
+          style={{ margin: "10px", height: "90%" }}
+        />
+        <h1>{noticeboard?.organization?.name}</h1>
+        <img
+          src={noticeboard?.organization?.extra}
+          alt="extra"
+          style={{ margin: "10px", height: "90%" }}
+        />{" "}
+      </div>
       {noticeboard?.splitType === "onedisplay" && (
         <PageSplitOne
           headline={noticeboard?.headline}
