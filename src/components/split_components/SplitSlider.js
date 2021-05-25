@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-
+import VideoLoader from "../VideoLoader";
 export default function SplitSlider({ notice }) {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice.interval);
   const [playing, setPlaying] = useState(false);
-  const [showSpinner, setShowSpinner] = useState();
+  const [showSpinner, setShowSpinner] = useState(true);
   const handleOnReady = () => {
     setTimeout(() => {
       setPlaying(true);
@@ -60,7 +60,7 @@ export default function SplitSlider({ notice }) {
             <div
               style={{ height: "100%", width: "100%", position: "absolute" }}
             >
-              <p>loading</p>
+              <VideoLoader />
             </div>
           )}
         </>

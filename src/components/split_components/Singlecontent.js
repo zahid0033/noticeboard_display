@@ -1,9 +1,9 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
-
+import VideoLoader from "../VideoLoader";
 export default function Singlecontent({ notice }) {
   const [playing, setPlaying] = useState(false);
-  const [showSpinner, setShowSpinner] = useState();
+  const [showSpinner, setShowSpinner] = useState(true);
   const handleOnReady = () => {
     setTimeout(() => {
       setPlaying(true);
@@ -33,7 +33,7 @@ export default function Singlecontent({ notice }) {
           />
           {showSpinner && (
             <div style={{ position: "fixed" }}>
-              <p>loading</p>
+              <VideoLoader />
             </div>
           )}
         </>

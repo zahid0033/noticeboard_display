@@ -11,11 +11,12 @@ const Loader = () => {
         height: "100vh",
       }}
     >
-      <div class="lds-ripple">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
         <div></div>
         <div></div>
       </div>
-      <h1 style={{ color: "#1b2845ff", fontSize: "5vh" }}>Loading</h1>
     </div>
   );
 };
