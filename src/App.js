@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./App.scss";
 import axios from "axios";
 import { io } from "socket.io-client";
@@ -15,8 +15,10 @@ import PageSplitFour from "./components/PageSplitFour";
 // import SingleImage from "./components/single_image/home";
 // import GridSlider from "./components/grid_slider/gridslider";
 // import SingleImageHeadline from "./components/single_image_headline/home";
-// import { BrowserRouter, Switch } from "react-router-dom";
-const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
+import { useParams } from "react-router-dom";
+import Loader from "./components/Loader";
+// const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
+const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env;
 
 const socket = io(REACT_APP_NOT_AXIOS_BASE_URL, {
   transports: ["websocket"],
@@ -24,12 +26,19 @@ const socket = io(REACT_APP_NOT_AXIOS_BASE_URL, {
 });
 
 function App() {
+  const { boardid } = useParams();
+  const [loading, setLoading] = useState(false);
+  console.log(boardid);
   const [noticeboard, setNoticeBoard] = useState({});
   const [update, setUpdate] = useState("");
-  const getnoticeboard = async () => {
+  const getnoticeboard = useCallback(async () => {
+    setLoading(true);
     try {
+      // const { data } = await axios.get(
+      //   `${REACT_APP_NOT_AXIOS_BASE_URL}/admin/getnoticeboard/${REACT_APP_NOT_BOARD_ID}`
+      // );
       const { data } = await axios.get(
-        `${REACT_APP_NOT_AXIOS_BASE_URL}/admin/getnoticeboard/${REACT_APP_NOT_BOARD_ID}`
+        `${REACT_APP_NOT_AXIOS_BASE_URL}/admin/getnoticeboard/${boardid}`
       );
       if (data.success) {
         setUpdate(Math.random());
@@ -40,113 +49,119 @@ function App() {
     } catch (error) {
       console.log(error.message);
     }
-  };
+    setLoading(false);
+  }, [boardid]);
 
-  const connectBoard = () => {
-    let boardId = REACT_APP_NOT_BOARD_ID;
-    if (!boardId) return;
-    let data = {
-      type: "board",
-      id: boardId,
-    };
+  const connectBoard = useCallback(() => {
+    // let boardId = REACT_APP_NOT_BOARD_ID;
+
     // io.join(boardId)
-    socket.emit("connected", data);
-    socket.emit("join", boardId);
-  };
+    socket.emit("connected", {
+      type: "board",
+      id: boardid,
+    });
+    socket.emit("join", boardid);
+  }, [boardid]);
 
   useEffect(() => {
     socket.on("connect", connectBoard);
     socket.on("update", getnoticeboard);
     getnoticeboard();
-  }, []);
+  }, [connectBoard, getnoticeboard]);
 
   return (
-    <div className="tttt">
-      <div
-        style={{
-          height: "10vh",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <img
-          src={noticeboard?.organization?.logo}
-          alt="logo"
-          style={{ margin: "10px", height: "90%" }}
-        />
-        <h1>{noticeboard?.organization?.name}</h1>
-        <img
-          src={noticeboard?.organization?.extra}
-          alt="extra"
-          style={{ margin: "10px", height: "90%" }}
-        />{" "}
-      </div>
-      {noticeboard?.splitType === "onedisplay" && (
-        <PageSplitOne
-          headline={noticeboard?.headline}
-          logo={noticeboard?.organization?.logo}
-          update={update}
-          noticesets={noticeboard?.splitNoticeSets}
-        />
-      )}
-      {noticeboard?.splitType === "twosplit" && (
-        <PageSplitTwo
-          headline={noticeboard?.headline}
-          logo={noticeboard?.organization?.logo}
-          update={update}
-          noticesets={noticeboard?.splitNoticeSets}
-        />
-      )}
-      {noticeboard?.splitType === "threetworight" && (
-        <PageSplitThreeTwoRight
-          headline={noticeboard?.headline}
-          logo={noticeboard?.organization?.logo}
-          update={update}
-          noticesets={noticeboard?.splitNoticeSets}
-        />
-      )}
-      {noticeboard?.splitType === "threetwoleft" && (
-        <PageSplitThreeTwoLeft
-          headline={noticeboard?.headline}
-          logo={noticeboard?.organization?.logo}
-          update={update}
-          noticesets={noticeboard?.splitNoticeSets}
-        />
-      )}
-      {noticeboard?.splitType === "threesplit" && (
-        <PageSplitThreeThree
-          headline={noticeboard?.headline}
-          logo={noticeboard?.organization?.logo}
-          update={update}
-          noticesets={noticeboard?.splitNoticeSets}
-        />
-      )}
-      {noticeboard?.splitType === "foursplit" && (
-        <PageSplitFour
-          headline={noticeboard?.headline}
-          logo={noticeboard?.organization?.logo}
-          update={update}
-          noticesets={noticeboard?.splitNoticeSets}
-        />
-      )}
-      {noticeboard?.headline && (
-        <div style={{ height: "10vh" }}>
-          {/*eslint-disable-next-line */}
-          <marquee
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div
             style={{
-              height: "6vh",
-              fontSize: "6vh",
-              lineHeight: "6vh",
-              padding: "10px",
+              height: "10vh",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            {noticeboard?.headline}
-          </marquee>
-        </div>
+            <img
+              src={noticeboard?.organization?.logo}
+              alt="logo"
+              style={{ margin: "10px", height: "90%" }}
+            />
+            <h1>{noticeboard?.organization?.name}</h1>
+            <img
+              src={noticeboard?.organization?.extra}
+              alt="extra"
+              style={{ margin: "10px", height: "90%" }}
+            />{" "}
+          </div>
+          {noticeboard?.splitType === "onedisplay" && (
+            <PageSplitOne
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets}
+            />
+          )}
+          {noticeboard?.splitType === "twosplit" && (
+            <PageSplitTwo
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets}
+            />
+          )}
+          {noticeboard?.splitType === "threetworight" && (
+            <PageSplitThreeTwoRight
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets}
+            />
+          )}
+          {noticeboard?.splitType === "threetwoleft" && (
+            <PageSplitThreeTwoLeft
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets}
+            />
+          )}
+          {noticeboard?.splitType === "threesplit" && (
+            <PageSplitThreeThree
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets}
+            />
+          )}
+          {noticeboard?.splitType === "foursplit" && (
+            <PageSplitFour
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets}
+            />
+          )}
+          {noticeboard?.headline && (
+            <div style={{ height: "10vh" }}>
+              {/*eslint-disable-next-line */}
+              <marquee
+                style={{
+                  height: "6vh",
+                  fontSize: "6vh",
+                  lineHeight: "6vh",
+                  padding: "10px",
+                }}
+              >
+                {noticeboard?.headline}
+              </marquee>
+            </div>
+          )}
+        </>
       )}
-    </div>
+    </>
   );
 }
 

@@ -5,6 +5,7 @@ export default function SplitSlider({ notice }) {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice.interval);
   const [playing, setPlaying] = useState(false);
+  const [showSpinner, setShowSpinner] = useState();
   const handleOnReady = () => {
     setTimeout(() => {
       setPlaying(true);
@@ -42,15 +43,27 @@ export default function SplitSlider({ notice }) {
         <h1>{notice?.materials[idx]?.material}</h1>
       )}
       {notice?.materials[idx]?.materialtype === "Video" && (
-        <ReactPlayer
-          muted
-          onReady={handleOnReady}
-          playing={playing}
-          url={notice?.materials[idx].material}
-          loop={true}
-          height="100%"
-          width="100%"
-        />
+        <>
+          <ReactPlayer
+            muted
+            onReady={handleOnReady}
+            playing={playing}
+            url={notice?.materials[idx].material}
+            loop={true}
+            height="100%"
+            width="100%"
+            style={{ position: "relative" }}
+            onBufferEnd={() => setShowSpinner(false)}
+            onBuffer={() => setShowSpinner(true)}
+          />
+          {showSpinner && (
+            <div
+              style={{ height: "100%", width: "100%", position: "absolute" }}
+            >
+              <p>loading</p>
+            </div>
+          )}
+        </>
       )}
     </>
   );
