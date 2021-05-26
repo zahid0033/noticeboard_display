@@ -28,7 +28,7 @@ const socket = io(REACT_APP_NOT_AXIOS_BASE_URL, {
 function App() {
   const { boardid } = useParams();
   const [loading, setLoading] = useState(false);
-  console.log(boardid);
+  // console.log(boardid);
   const [noticeboard, setNoticeBoard] = useState({});
   const [update, setUpdate] = useState("");
   const getnoticeboard = useCallback(async () => {
@@ -82,6 +82,8 @@ function App() {
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
+              background:
+                noticeboard?.organization?.header?.background || "white",
             }}
           >
             <img
@@ -89,7 +91,13 @@ function App() {
               alt="logo"
               style={{ margin: "10px", height: "90%" }}
             />
-            <h1>{noticeboard?.organization?.name}</h1>
+            <h1
+              style={{
+                color: noticeboard?.organization?.header?.color || "black",
+              }}
+            >
+              {noticeboard?.organization?.name}
+            </h1>
             <img
               src={noticeboard?.organization?.extra}
               alt="extra"
@@ -145,7 +153,13 @@ function App() {
             />
           )}
           {noticeboard?.headline && (
-            <div style={{ height: "10vh" }}>
+            <div
+              style={{
+                height: "10vh",
+                background:
+                  noticeboard?.organization?.headline?.background || "white",
+              }}
+            >
               {/*eslint-disable-next-line */}
               <marquee
                 style={{
@@ -153,6 +167,7 @@ function App() {
                   fontSize: "6vh",
                   lineHeight: "6vh",
                   padding: "10px",
+                  color: noticeboard?.organization?.headline?.color || "black",
                 }}
               >
                 {noticeboard?.headline}
