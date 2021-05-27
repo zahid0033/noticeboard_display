@@ -10,7 +10,7 @@ const PageSplitThreeTwoLeft = ({ update, noticesets, headline }) => {
         style={{ display: "flex", flexDirection: "column" }}
       >
         {noticesets[0] && (
-          <div style={{ height: "50vh", width: "100%", objectFit: "contain" }}>
+          <div style={{ height: "50%", width: "100%", objectFit: "contain" }}>
             {noticesets[0]?.viewtype === "imagetextslider" && (
               <SplitSlider update={update} notice={noticesets[0]} />
             )}
@@ -23,7 +23,7 @@ const PageSplitThreeTwoLeft = ({ update, noticesets, headline }) => {
           </div>
         )}
         {noticesets[1] && (
-          <div style={{ height: "50vh", width: "100%", objectFit: "contain" }}>
+          <div style={{ height: "50%", width: "100%", objectFit: "contain" }}>
             {noticesets[1]?.viewtype === "imagetextslider" && (
               <SplitSlider update={update} notice={noticesets[1]} />
             )}

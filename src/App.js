@@ -167,6 +167,7 @@ function App() {
                   fontSize: "6vh",
                   lineHeight: "6vh",
                   padding: "10px",
+                  fontFamily: "Noto-Sans-Bangla",
                   color: noticeboard?.organization?.headline?.color || "black",
                 }}
               >
