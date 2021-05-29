@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
-import VideoLoader from "../VideoLoader";
+import VideoComponent from "../VideoComponents/VideoComponent";
 export default function SplitSlider({ notice }) {
   const [idx, setIdx] = useState(0);
   const [time, setTime] = useState(notice.interval);
-  const [playing, setPlaying] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(true);
-  const handleOnReady = () => {
-    setTimeout(() => {
-      setPlaying(true);
-    }, 100);
-  };
+
   useEffect(() => {
     const changeSlide = setTimeout(() => {
       if (idx === notice.materials.length - 1) {
@@ -42,29 +35,7 @@ export default function SplitSlider({ notice }) {
       {notice?.materials[idx]?.materialtype === "Text" && (
         <h1>{notice?.materials[idx]?.material}</h1>
       )}
-      {notice?.materials[idx]?.materialtype === "Video" && (
-        <>
-          <ReactPlayer
-            muted
-            onReady={handleOnReady}
-            playing={playing}
-            url={notice?.materials[idx].material}
-            loop={true}
-            height="100%"
-            width="100%"
-            style={{ position: "relative" }}
-            onBufferEnd={() => setShowSpinner(false)}
-            onBuffer={() => setShowSpinner(true)}
-          />
-          {showSpinner && (
-            <div
-              style={{ height: "100%", width: "100%", position: "absolute" }}
-            >
-              <VideoLoader />
-            </div>
-          )}
-        </>
-      )}
+      {notice?.materials[idx]?.materialtype === "Video" && <VideoComponent />}
     </>
   );
 }

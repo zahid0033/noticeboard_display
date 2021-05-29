@@ -1,14 +1,5 @@
-import { useState } from "react";
-import ReactPlayer from "react-player";
-import VideoLoader from "../VideoLoader";
+import VideoComponent from "../VideoComponents/VideoComponent";
 export default function Singlecontent({ notice }) {
-  const [playing, setPlaying] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(true);
-  const handleOnReady = () => {
-    setTimeout(() => {
-      setPlaying(true);
-    }, 100);
-  };
   return (
     <>
       {notice?.materials[0]?.materialtype === "Image" && (
@@ -18,25 +9,7 @@ export default function Singlecontent({ notice }) {
         <pre>{notice.materials[0].material}</pre>
       )}
       {notice?.materials[0]?.materialtype === "Video" && (
-        <>
-          <ReactPlayer
-            height="100%"
-            width="100%"
-            muted
-            onReady={handleOnReady}
-            playing={playing}
-            url={notice.materials[0].material}
-            loop={true}
-            style={{ position: "relative" }}
-            onBufferEnd={() => setShowSpinner(false)}
-            onBuffer={() => setShowSpinner(true)}
-          />
-          {showSpinner && (
-            <div style={{ position: "fixed" }}>
-              <VideoLoader />
-            </div>
-          )}
-        </>
+        <VideoComponent notice={notice} />
       )}
       {/* <div style={{ position: "absolute", top: "10px", right: "10px" }}>
         <img
