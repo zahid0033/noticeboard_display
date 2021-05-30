@@ -17,7 +17,7 @@ import PageSplitFour from "./components/PageSplitFour";
 // import SingleImageHeadline from "./components/single_image_headline/home";
 import { useParams } from "react-router-dom";
 import Loader from "./components/Loader";
-import Clock from "./components/widgets/Clock";
+// import Clock from "./components/widgets/Clock";
 // const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
 // import Marquee from "react-fast-marquee";
 import BookLayoutTwo from "./components/BookLayoutTwo";
@@ -208,7 +208,7 @@ function App() {
               </Marquee> */}
             </>
           )}
-          <Clock />
+          {/* <Clock /> */}
         </div>
       )}
     </>
