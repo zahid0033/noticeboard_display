@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 // import { Route } from "react-router-dom";
 import PageSplitOne from "./components/PageSplitOne";
 import PageSplitTwo from "./components/PageSplitTwo";
-import PageSplitThreeThree from "./components/PageSplitThreeThree";
+import PageSplitThreeThree from "./components/BookLayoutTwo";
 import PageSplitThreeTwoRight from "./components/PageSplitThreeTwoRight";
 import PageSplitThreeTwoLeft from "./components/PageSplitThreeTwoLeft";
 import PageSplitFour from "./components/PageSplitFour";
@@ -17,7 +17,10 @@ import PageSplitFour from "./components/PageSplitFour";
 // import SingleImageHeadline from "./components/single_image_headline/home";
 import { useParams } from "react-router-dom";
 import Loader from "./components/Loader";
+import Clock from "./components/widgets/Clock";
 // const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
+import Marquee from "react-fast-marquee";
+import BookLayoutTwo from "./components/BookLayoutTwo";
 const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env;
 
 const socket = io(REACT_APP_NOT_AXIOS_BASE_URL, {
@@ -74,7 +77,7 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <>
+        <div style={{ height: "100%", width: "100%", position: "relative" }}>
           <div
             style={{
               height: "10vh",
@@ -120,6 +123,14 @@ function App() {
               noticesets={noticeboard?.splitNoticeSets}
             />
           )}
+          {noticeboard?.splitType === "booklayouttwo" && (
+            <BookLayoutTwo
+              headline={noticeboard?.headline}
+              logo={noticeboard?.organization?.logo}
+              update={update}
+              noticesets={noticeboard?.splitNoticeSets[0]}
+            />
+          )}
           {noticeboard?.splitType === "threetworight" && (
             <PageSplitThreeTwoRight
               headline={noticeboard?.headline}
@@ -153,29 +164,46 @@ function App() {
             />
           )}
           {noticeboard?.headline && (
-            <div
-              style={{
-                height: "10vh",
-                background:
-                  noticeboard?.organization?.headline?.background || "white",
-              }}
-            >
+            <>
               {/*eslint-disable-next-line */}
-              <marquee
+              {/* <marquee
                 style={{
-                  height: "6vh",
+                  height: "10vh",
                   fontSize: "6vh",
-                  lineHeight: "6vh",
-                  padding: "10px",
+                  // lineHeight: "6vh",
+                  background:
+                    noticeboard?.organization?.headline?.background || "white",
+                  padding: "30px",
                   fontFamily: "Noto-Sans-Bangla",
                   color: noticeboard?.organization?.headline?.color || "black",
                 }}
               >
                 {noticeboard?.headline}
-              </marquee>
-            </div>
+              </marquee> */}
+              <Marquee
+                speed="100"
+                gradient={false}
+                style={{
+                  background:
+                    noticeboard?.organization?.headline?.background || "white",
+                  height: "10vh",
+                }}
+              >
+                <div
+                  className="text"
+                  style={{
+                    fontSize: "5vh",
+                    color:
+                      noticeboard?.organization?.headline?.color || "white",
+                  }}
+                >
+                  {noticeboard?.headline}
+                </div>
+              </Marquee>
+            </>
           )}
-        </>
+          <Clock />
+        </div>
       )}
     </>
   );

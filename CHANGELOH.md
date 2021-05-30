@@ -1,4 +1,5 @@
 # Changes
 
-- Made a seperate folder and component for Video Components.
-- Added sound to videos.
+- Changed marquee librart
+- Added clock
+- changed text rendering

@@ -6,7 +6,9 @@ export default function Singlecontent({ notice }) {
         <img src={notice.materials[0].material} alt="" />
       )}
       {notice?.materials[0]?.materialtype === "Text" && (
-        <pre>{notice.materials[0].material}</pre>
+        <div style={{ wordWrap: "break-word", margin: "10px" }}>
+          <h4>{notice.materials[0].material}</h4>
+        </div>
       )}
       {notice?.materials[0]?.materialtype === "Video" && (
         <VideoComponent notice={notice} />

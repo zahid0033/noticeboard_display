@@ -33,7 +33,9 @@ export default function SplitSlider({ notice }) {
         />
       )}
       {notice?.materials[idx]?.materialtype === "Text" && (
-        <h1>{notice?.materials[idx]?.material}</h1>
+        <div style={{ wordWrap: "break-word", margin: "10px" }}>
+          <h4>{notice?.materials[idx]?.material}</h4>
+        </div>
       )}
       {notice?.materials[idx]?.materialtype === "Video" && <VideoComponent />}
     </>

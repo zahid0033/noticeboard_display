@@ -157,3 +157,15 @@ marquee {
     }
   }
 }
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .text {
+    white-space: nowrap;
+  }
+}
