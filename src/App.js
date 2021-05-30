@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 // import { Route } from "react-router-dom";
 import PageSplitOne from "./components/PageSplitOne";
 import PageSplitTwo from "./components/PageSplitTwo";
-import PageSplitThreeThree from "./components/BookLayoutTwo";
+import PageSplitThreeThree from "./components/PageSplitThreeThree";
 import PageSplitThreeTwoRight from "./components/PageSplitThreeTwoRight";
 import PageSplitThreeTwoLeft from "./components/PageSplitThreeTwoLeft";
 import PageSplitFour from "./components/PageSplitFour";

@@ -1,3 +1,3 @@
 # Changes
 
-- reverted to marquee html tag
+- fixed three split layout
