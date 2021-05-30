@@ -14,7 +14,7 @@ const VideoComponent = ({ notice }) => {
       <ReactPlayer
         height="100%"
         width="100%"
-        muted
+        muted={!playing}
         onReady={handleOnReady}
         playing={playing}
         url={notice.materials[0].material}
