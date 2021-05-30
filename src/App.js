@@ -19,7 +19,7 @@ import { useParams } from "react-router-dom";
 import Loader from "./components/Loader";
 import Clock from "./components/widgets/Clock";
 // const { REACT_APP_NOT_AXIOS_BASE_URL, REACT_APP_NOT_BOARD_ID } = process.env;
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 import BookLayoutTwo from "./components/BookLayoutTwo";
 const { REACT_APP_NOT_AXIOS_BASE_URL } = process.env;
 
@@ -165,22 +165,28 @@ function App() {
           )}
           {noticeboard?.headline && (
             <>
-              {/*eslint-disable-next-line */}
-              {/* <marquee
+              <div
                 style={{
                   height: "10vh",
-                  fontSize: "6vh",
-                  // lineHeight: "6vh",
                   background:
                     noticeboard?.organization?.headline?.background || "white",
-                  padding: "30px",
-                  fontFamily: "Noto-Sans-Bangla",
-                  color: noticeboard?.organization?.headline?.color || "black",
                 }}
               >
-                {noticeboard?.headline}
-              </marquee> */}
-              <Marquee
+                {/*eslint-disable-next-line */}
+                <marquee
+                  style={{
+                    // height: "6vh",
+                    fontSize: "6vh",
+                    // lineHeight: "1",
+                    // padding: "0 10px",
+                    color:
+                      noticeboard?.organization?.headline?.color || "black",
+                  }}
+                >
+                  {noticeboard?.headline}
+                </marquee>
+              </div>
+              {/* <Marquee
                 speed="100"
                 gradient={false}
                 style={{
@@ -199,7 +205,7 @@ function App() {
                 >
                   {noticeboard?.headline}
                 </div>
-              </Marquee>
+              </Marquee> */}
             </>
           )}
           <Clock />
