@@ -1,5 +1,3 @@
 # Changes
 
-- Changed marquee librart
-- Added clock
-- changed text rendering
+- Changed video to muted
