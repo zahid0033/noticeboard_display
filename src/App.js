@@ -110,6 +110,7 @@ function App() {
           {noticeboard?.splitType === "onedisplay" && (
             <PageSplitOne
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets}
@@ -118,6 +119,7 @@ function App() {
           {noticeboard?.splitType === "twosplit" && (
             <PageSplitTwo
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets}
@@ -126,6 +128,7 @@ function App() {
           {noticeboard?.splitType === "booklayouttwo" && (
             <BookLayoutTwo
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets[0]}
@@ -134,6 +137,7 @@ function App() {
           {noticeboard?.splitType === "threetworight" && (
             <PageSplitThreeTwoRight
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets}
@@ -142,6 +146,7 @@ function App() {
           {noticeboard?.splitType === "threetwoleft" && (
             <PageSplitThreeTwoLeft
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets}
@@ -150,6 +155,7 @@ function App() {
           {noticeboard?.splitType === "threesplit" && (
             <PageSplitThreeThree
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets}
@@ -158,6 +164,7 @@ function App() {
           {noticeboard?.splitType === "foursplit" && (
             <PageSplitFour
               headline={noticeboard?.headline}
+              headlineTwo={noticeboard?.headlineTwo}
               logo={noticeboard?.organization?.logo}
               update={update}
               noticesets={noticeboard?.splitNoticeSets}
@@ -167,7 +174,7 @@ function App() {
             <>
               <div
                 style={{
-                  height: "10vh",
+                  height: "5vh",
                   background:
                     noticeboard?.organization?.headline?.background || "white",
                 }}
@@ -176,7 +183,7 @@ function App() {
                 <marquee
                   style={{
                     // height: "6vh",
-                    fontSize: "6vh",
+                    fontSize: "3vh",
                     // lineHeight: "1",
                     // padding: "0 10px",
                     color:
@@ -186,28 +193,54 @@ function App() {
                   {noticeboard?.headline}
                 </marquee>
               </div>
-              {/* <Marquee
-                speed="100"
-                gradient={false}
-                style={{
-                  background:
-                    noticeboard?.organization?.headline?.background || "white",
-                  height: "10vh",
-                }}
-              >
-                <div
-                  className="text"
-                  style={{
-                    fontSize: "5vh",
-                    color:
-                      noticeboard?.organization?.headline?.color || "white",
-                  }}
-                >
-                  {noticeboard?.headline}
-                </div>
-              </Marquee> */}
             </>
           )}
+          {noticeboard?.headlineTwo && (
+            <>
+              <div
+                style={{
+                  height: "5vh",
+                  background:
+                    noticeboard?.organization?.headlineTwo?.background ||
+                    "white",
+                }}
+              >
+                {/*eslint-disable-next-line */}
+                <marquee
+                  style={{
+                    // height: "6vh",
+                    fontSize: "3vh",
+                    // lineHeight: "1",
+                    // padding: "0 10px",
+                    color:
+                      noticeboard?.organization?.headlineTwo?.color || "black",
+                  }}
+                >
+                  {noticeboard?.headlineTwo}
+                </marquee>
+              </div>
+            </>
+          )}
+          {/* <Marquee
+            speed="100"
+            gradient={false}
+            style={{
+              background:
+                noticeboard?.organization?.headline?.background || "white",
+              height: "10vh",
+            }}
+          >
+            <div
+              className="text"
+              style={{
+                fontSize: "5vh",
+                color:
+                  noticeboard?.organization?.headline?.color || "white",
+              }}
+            >
+              {noticeboard?.headline}
+            </div>
+          </Marquee> */}
           {/* <Clock /> */}
         </div>
       )}

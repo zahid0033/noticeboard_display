@@ -2,12 +2,12 @@ import React from "react";
 import SplitGridSlider from "./split_components/SplitGridSlider";
 import SplitSlider from "./split_components/SplitSlider";
 import Splitcontent from "./split_components/Singlecontent";
-const PageSplitThreeThree = ({ update, noticesets, headline }) => {
+const PageSplitThreeThree = ({ update, noticesets, headline, headlineTwo }) => {
   return (
     <div
       id="noticecontainer"
       style={{
-        height: headline ? "80vh" : "90vh",
+        height: headline || headlineTwo ? "80vh" : "90vh",
         display: "flex",
         flexDirection: "row",
         flexWrap: "nowrap",

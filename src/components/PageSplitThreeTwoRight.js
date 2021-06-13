@@ -2,9 +2,17 @@ import React from "react";
 import SplitGridSlider from "./split_components/SplitGridSlider";
 import SplitSlider from "./split_components/SplitSlider";
 import Splitcontent from "./split_components/Singlecontent";
-const PageSplitThreeTwoRight = ({ update, noticesets, headline }) => {
+const PageSplitThreeTwoRight = ({
+  update,
+  noticesets,
+  headline,
+  headlineTwo,
+}) => {
   return (
-    <div id="noticecontainer" style={{ height: headline ? "80vh" : "90vh" }}>
+    <div
+      id="noticecontainer"
+      style={{ height: headline || headlineTwo ? "80vh" : "90vh" }}
+    >
       {noticesets[0] && (
         <div className="itemz">
           {noticesets[0]?.viewtype === "imagetextslider" && (
